@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<style>
+  /* Memoh skeuomorphic app icon · 1024 squircle, brand violet tokens
+     bg #fff/#f4f3fa · violet #7c3aed/#6d28d9 · shadow ink #59436e */
+  html, body { margin: 0; padding: 0; background: transparent; }
+  svg { display: block; }
+</style></head>
+<body>
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Memoh app icon: the mascot as a glossy object under studio light">
+  <defs>
+    <clipPath id="sq"><rect x="0" y="0" width="1024" height="1024" rx="228" ry="228"/></clipPath>
+
+    <linearGradient id="bg" x1="0" y1="0" x2="0.35" y2="1">
+      <stop offset="0" stop-color="#9a6cf9"/>
+      <stop offset="0.5" stop-color="#7c3aed"/>
+      <stop offset="1" stop-color="#5217b4"/>
+    </linearGradient>
+
+    <radialGradient id="stage" cx="0.5" cy="0.12" r="0.85">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.32"/>
+      <stop offset="0.45" stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="vig" cx="0.5" cy="0.46" r="0.78">
+      <stop offset="0.58" stop-color="#1e0850" stop-opacity="0"/>
+      <stop offset="1" stop-color="#1e0850" stop-opacity="0.38"/>
+    </radialGradient>
+
+    <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.24"/>
+      <stop offset="0.75" stop-color="#ffffff" stop-opacity="0.07"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.03"/>
+    </linearGradient>
+
+    <linearGradient id="bevelTop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="0.4" stop-color="#ffffff" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="bevelBot" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3b1a86" stop-opacity="0"/>
+      <stop offset="0.72" stop-color="#3b1a86" stop-opacity="0"/>
+      <stop offset="1" stop-color="#14043a" stop-opacity="0.45"/>
+    </linearGradient>
+
+    <linearGradient id="reflFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.65"/>
+      <stop offset="0.8" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="reflMask"><rect x="0" y="789" width="1024" height="235" fill="url(#reflFade)"/></mask>
+
+    <filter id="softShadow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+    <filter id="rimHalo" x="-40%" y="-40%" width="180%" height="180%">
+      <feMorphology in="SourceAlpha" operator="dilate" radius="4" result="dil"/>
+      <feGaussianBlur in="dil" stdDeviation="13" result="dilb"/>
+      <feFlood flood-color="#eadcff" flood-opacity="0.5" result="halo"/>
+      <feComposite in="halo" in2="dilb" operator="in"/>
+    </filter>
+    <filter id="objDrop" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="20" stdDeviation="26" flood-color="#1c0552" flood-opacity="0.55"/>
+    </filter>
+    <filter id="sheenBlur" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="34"/>
+    </filter>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.95  0 0 0 0 0.9  0 0 0 0 1  0 0 0 0.05 0"/>
+    </filter>
+  </defs>
+
+  <g clip-path="url(#sq)">
+    <rect width="1024" height="1024" fill="url(#bg)"/>
+    <rect width="1024" height="1024" fill="url(#stage)"/>
+
+    <!-- floor reflection -->
+    <g mask="url(#reflMask)" opacity="0.5">
+      <g transform="translate(0 1578) scale(1 -1)">
+        <image href="../assets/logo-solid.png" x="172" y="190" width="680" height="599"/>
+      </g>
+    </g>
+
+    <!-- contact shadow -->
+    <ellipse cx="512" cy="802" rx="296" ry="40" fill="#1c0552" opacity="0.5" filter="url(#softShadow)"/>
+
+    <!-- the object: rim halo layer, then body with drop shadow -->
+    <image href="../assets/logo-solid.png" x="172" y="190" width="680" height="599" filter="url(#rimHalo)"/>
+    <image href="../assets/logo-solid.png" x="172" y="190" width="680" height="599" filter="url(#objDrop)"/>
+
+    <!-- plastic sheen on the body, top-left -->
+    <ellipse cx="352" cy="332" rx="128" ry="82" fill="#ffffff" opacity="0.28" filter="url(#sheenBlur)" transform="rotate(-18 352 332)"/>
+
+    <!-- glass plate gloss -->
+    <path d="M0 0 H1024 V348 Q512 208 0 348 Z" fill="url(#gloss)"/>
+
+    <rect width="1024" height="1024" fill="url(#vig)"/>
+    <rect width="1024" height="1024" filter="url(#grain)" opacity="0.55"/>
+
+    <!-- squircle inner bevel -->
+    <rect x="3" y="3" width="1018" height="1018" rx="225" fill="none" stroke="url(#bevelTop)" stroke-width="3"/>
+    <rect x="3" y="3" width="1018" height="1018" rx="225" fill="none" stroke="url(#bevelBot)" stroke-width="4"/>
+  </g>
+</svg>
+</body></html>

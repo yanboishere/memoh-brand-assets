@@ -1,0 +1,33 @@
+<!doctype html>
+<!-- Hallmark · pre-emit critique: P4 H4 E4 S5 R4 V4 -->
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="brand.css">
+<style>
+  .mark { top: 64px; left: 80px; }
+  .site { bottom: 64px; left: 80px; }
+  .head { position: absolute; top: 170px; left: 80px; }
+  .head h1 { font-size: 70px; max-width: 18ch; }
+  .table { position: absolute; left: 80px; right: 80px; top: 330px; font-size: 27px; }
+  .row { display: grid; grid-template-columns: 300px minmax(0,1fr) minmax(0,1fr); align-items: baseline; padding: 26px 0; border-bottom: 1px solid var(--line); }
+  .row.head-row { border-bottom: 2px solid var(--violet); padding-bottom: 20px; }
+  .row .label { color: var(--dim); font-size: 24px; }
+  .row .cell { font-family: var(--font-mono); color: var(--paper); font-weight: 500; }
+  .plan-name { font-size: 34px; font-weight: 700; color: var(--paper); font-family: var(--font-display); }
+  .plan-price { font-family: var(--font-mono); font-size: 30px; color: var(--violet-2); font-weight: 700; margin-left: 18px; }
+</style></head>
+<body><div class="card">
+  <div class="mark"><img src="../assets/logo.png" alt="Memoh logo"><span>Memoh</span></div>
+  <div class="head"><h1>Need more power? Two bigger machines.</h1></div>
+  <div class="table">
+    <div class="row head-row">
+      <div class="label"></div>
+      <div><span class="plan-name">Pro</span><span class="plan-price">$60/mo</span></div>
+      <div><span class="plan-name">Premium</span><span class="plan-price">$150/mo</span></div>
+    </div>
+    <div class="row"><div class="label">CPU</div><div class="cell">16-core</div><div class="cell">32-core</div></div>
+    <div class="row"><div class="label">RAM</div><div class="cell">32 GB</div><div class="cell">64 GB</div></div>
+    <div class="row"><div class="label">Storage</div><div class="cell">120 GB</div><div class="cell">300 GB</div></div>
+    <div class="row"><div class="label">Credits</div><div class="cell">30,000</div><div class="cell">75,000</div></div>
+  </div>
+  <div class="site">memoh.ai</div>
+  <p style="position:absolute;left:80px;right:80px;bottom:18px;font-size:21px;line-height:28px;font-weight:700;letter-spacing:0;color:var(--violet-2)" class="token-note">Token allowance is valued in USD at equivalent model API rates. Plan conversion: USD 1 = 500 token credits.</p>
+</div></body></html>

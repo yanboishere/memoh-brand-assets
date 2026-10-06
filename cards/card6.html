@@ -1,0 +1,96 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="brand.css">
+<style>
+  .mark { top: 64px; right: 80px; }
+  .mark span { letter-spacing: 0; }
+  .site { bottom: 54px; right: 80px; }
+  .wrap { position: absolute; inset: 0; padding: 126px 80px 110px; display: flex; flex-direction: column; }
+  .wrap h1 { font-size: 70px; max-width: 1120px; letter-spacing: 0; line-height: 1.08; }
+  .eq { display: grid; grid-template-columns: minmax(0,1fr) 60px minmax(0,1fr) 60px minmax(0,1fr); align-items: stretch; margin-top: 38px; }
+  .op { display: flex; align-items: flex-start; justify-content: center; padding-top: 94px; font-family: var(--font-mono); font-size: 40px; color: var(--violet-2); font-weight: 500; }
+  .term { min-width: 0; }
+  .illustration { display: block; width: 100%; height: 240px; border-radius: 6px; background: var(--raise); }
+  .wire { fill: none; stroke: var(--violet); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .edge { fill: var(--bg); stroke: var(--dim); stroke-width: 1.5; stroke-linejoin: round; }
+  .side { fill: var(--line); stroke: var(--dim); stroke-width: 1.5; stroke-linejoin: round; }
+  .slot { fill: var(--raise); stroke: var(--line); stroke-width: 1; }
+  .accent { fill: var(--violet); }
+  .detail { fill: none; stroke: var(--dim); stroke-width: 1.5; stroke-linecap: round; }
+  .term .t { border-top: 2px solid var(--violet); padding-top: 18px; margin-top: 22px; font-size: 30px; font-weight: 600; color: var(--paper); }
+  .term .d { font-size: 23px; color: var(--dim); margin-top: 10px; line-height: 1.5; max-width: 29ch; }
+  .result { margin-top: 36px; padding-top: 22px; border-top: 1px solid var(--line); font-family: var(--font-mono); font-size: 27px; color: var(--dim); }
+  .result b { color: var(--paper); font-weight: 700; }
+  .result .equals { color: var(--violet-2); }
+</style></head>
+<body><div class="card">
+  <div class="mark"><img src="../assets/logo.png" alt="Memoh logo"><span>Memoh</span></div>
+  <div class="wrap">
+    <h1>Why is it this cheap?<br>No tricks.</h1>
+    <div class="eq">
+      <div class="term">
+        <svg class="illustration" viewBox="0 0 440 240" role="img" aria-label="Three data center cabinets with server slots and status lights">
+          <defs>
+            <g id="rack-slot"><rect class="slot" width="64" height="19" rx="2"/><path class="detail" d="M8 6h29M8 11h29"/><circle class="accent" cx="54" cy="9.5" r="2.5"/></g>
+            <g id="cabinet">
+              <path class="side" d="M0 0l19-11h82L82 0zM82 0l19-11v141l-19 11z"/>
+              <rect class="edge" width="82" height="141" rx="2"/>
+              <path class="wire" d="M9 12h64"/>
+              <use href="#rack-slot" x="9" y="23"/><use href="#rack-slot" x="9" y="47"/><use href="#rack-slot" x="9" y="71"/><use href="#rack-slot" x="9" y="95"/>
+              <path class="detail" d="M10 129h16m6 0h16m6 0h16"/>
+            </g>
+          </defs>
+          <path d="M37 189l87-50 278 38-88 51z" fill="var(--line)" opacity=".65"/>
+          <path d="M34 207l92-53M123 223l93-53M231 232l92-53" stroke="var(--line)" fill="none"/>
+          <use href="#cabinet" x="61" y="48"/><use href="#cabinet" x="171" y="59"/><use href="#cabinet" x="281" y="70"/>
+          <path class="wire" d="M102 198v11h110v-1m0 1h110v-1" opacity=".55"/>
+        </svg>
+        <div class="t">Our own data centers</div><div class="d">We run the hardware ourselves — no cloud markup.</div>
+      </div>
+      <div class="op">+</div>
+      <div class="term">
+        <svg class="illustration" viewBox="0 0 440 240" role="img" aria-label="Central automation gear schedules three connected servers">
+          <defs>
+            <g id="managed-server">
+              <path class="side" d="M0 0l12-7h80L80 0zM80 0l12-7v43l-12 7z"/>
+              <rect class="edge" width="80" height="43" rx="3"/>
+              <path class="detail" d="M12 14h37M12 22h37M12 30h23"/>
+              <circle class="accent" cx="66" cy="16" r="3"/><circle cx="66" cy="28" r="2" fill="var(--line)"/>
+            </g>
+          </defs>
+          <path d="M39 199l26-15h308l29 16-28 16H68z" fill="var(--line)" opacity=".65"/>
+          <path class="wire" d="M220 109v27M84 157v-21h272v21M220 136v21"/>
+          <circle cx="220" cy="136" r="4" class="accent"/>
+          <path class="side" d="M176 39l12-7h80l-12 7zM256 39l12-7v68l-12 7z"/>
+          <rect class="edge" x="176" y="39" width="80" height="68" rx="5"/>
+          <g transform="translate(216 73)">
+            <path d="M-7-23h14l2 7 6 3 7-2 7 12-5 5v7l5 5-7 12-7-2-6 3-2 7H-7l-2-7-6-3-7 2-7-12 5-5V2l-5-5 7-12 7 2 6-3z" transform="scale(.73) translate(0 -4)" fill="var(--violet)"/>
+            <circle r="8" fill="var(--bg)"/>
+          </g>
+          <circle cx="294" cy="64" r="13" fill="var(--bg)" stroke="var(--line)"/>
+          <path class="wire" d="M288 64l4 4 8-9"/>
+          <use href="#managed-server" x="44" y="161"/><use href="#managed-server" x="180" y="161"/><use href="#managed-server" x="316" y="161"/>
+          <circle class="accent" cx="84" cy="146" r="3"/><circle class="accent" cx="356" cy="146" r="3"/>
+        </svg>
+        <div class="t">Automated operations</div><div class="d">Machines are provisioned and maintained without manual work.</div>
+      </div>
+      <div class="op">+</div>
+      <div class="term">
+        <svg class="illustration" viewBox="0 0 440 240" role="img" aria-label="Three workloads connect to one shared server resource pool">
+          <defs>
+            <g id="workload"><path class="side" d="M0 0l10-6h56L56 0zM56 0l10-6v38l-10 6z"/><rect class="edge" width="56" height="38" rx="3"/><path class="wire" d="M15 13l-6 6 6 6m26-12 6 6-6 6M31 11l-6 16"/></g>
+            <g id="pooled-server"><path class="side" d="M0 0l15-9h188L188 0zM188 0l15-9v26l-15 9z"/><rect class="edge" width="188" height="26" rx="3"/><rect x="10" y="7" width="85" height="12" rx="2" fill="var(--raise)"/><path class="detail" d="M17 11h69m-69 4h69M111 9v8m7-8v8m7-8v8"/><circle class="accent" cx="170" cy="13" r="3"/></g>
+          </defs>
+          <path d="M80 191l37-22h211l37 23-37 23H117z" fill="var(--line)" opacity=".65"/>
+          <path class="wire" d="M80 80v20h276V80M218 80v45"/>
+          <circle class="accent" cx="218" cy="100" r="4"/>
+          <use href="#workload" x="52" y="40"/><use href="#workload" x="190" y="40"/><use href="#workload" x="328" y="40"/>
+          <use href="#pooled-server" x="118" y="180"/><use href="#pooled-server" x="118" y="149"/><use href="#pooled-server" x="118" y="118"/>
+          <path class="wire" d="M95 130H81v66h14M335 130h14v66h-14" opacity=".65"/>
+        </svg>
+        <div class="t">Efficient server reuse</div><div class="d">Resources are shared intelligently across workloads.</div>
+      </div>
+    </div>
+    <div class="result"><span class="equals">=</span> <b>marginal cost near zero</b>, savings passed to you</div>
+  </div>
+  <div class="site">memoh.ai</div>
+</div></body></html>

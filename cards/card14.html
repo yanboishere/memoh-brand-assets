@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="brand.css">
+<style>
+  /* Hallmark · pre-emit critique: P5 H5 E4 S5 R5 V4 */
+  /* Text card · "check the email plz" · mascot below with an envelope in front (no arms, hands or dot) */
+  h1 { position: absolute; top: 160px; left: 0; right: 0; text-align: center; font-size: 160px; line-height: 1; letter-spacing: -.03em; color: var(--paper); white-space: nowrap; }
+  h1 em { font-style: normal; color: var(--violet); }
+
+  .layer { position: absolute; left: 0; top: 0; width: 1600px; height: 900px; }
+  .mascot { position: absolute; left: 640px; top: 450px; width: 320px; height: auto; }
+  .mail .env { fill: var(--bg); stroke: var(--paper); stroke-width: 4; }
+  .mail .flap { fill: none; stroke: var(--violet); stroke-width: 4; stroke-linejoin: round; stroke-linecap: round; }
+</style></head>
+<body><main class="card">
+  <h1>check the email <em>plz</em></h1>
+
+  <img class="mascot" src="../assets/logo-solid.png" alt="Memoh mascot">
+
+  <svg class="layer mail" viewBox="0 0 1600 900" role="img" aria-label="An envelope in front of the mascot">
+    <g transform="rotate(-4 800 745)">
+      <rect class="env" x="700" y="677" width="200" height="136" rx="12"/>
+      <path class="flap" d="M706 685 L800 761 L894 685"/>
+    </g>
+  </svg>
+</main></body></html>

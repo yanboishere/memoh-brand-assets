@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="brand.css">
+<style>
+  /* Hallmark · pre-emit critique: P4 H5 E4 S5 R5 V4 */
+  /* Kibotos maintenance notice · headline time window + two-lane timeline (VMs uninterrupted) */
+  .masthead { position: absolute; top: 48px; left: 72px; right: 72px; display: flex; align-items: center; justify-content: space-between; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+  .edition, .address { font-family: var(--font-mono); font-size: 19px; font-weight: 500; }
+  .edition { display: flex; align-items: center; gap: 12px; }
+  .edition::before { content: ''; width: 10px; height: 10px; background: var(--violet); }
+  .address { color: var(--violet-2); }
+
+  .lead { position: absolute; top: 170px; left: 72px; color: var(--violet-2); font-size: 44px; font-weight: 500; }
+  .window { position: absolute; top: 252px; left: 72px; font-family: var(--font-mono); font-size: 150px; font-weight: 700; letter-spacing: -.04em; color: var(--paper); }
+  .window .tz { font-size: 38px; font-weight: 500; letter-spacing: 0; color: var(--dim); margin-left: 28px; }
+
+  .timeline { position: absolute; left: 72px; top: 486px; width: 1456px; height: 240px; }
+  .timeline .band { fill: var(--raise); }
+  .timeline .bound { stroke: var(--line); stroke-width: 1.5; }
+  .timeline .vm { stroke: var(--violet); stroke-width: 3.5; stroke-linecap: round; }
+  .timeline .conn { stroke: var(--dim); stroke-width: 3; stroke-linecap: round; }
+  .timeline .drop { stroke: var(--dim); stroke-width: 3; stroke-dasharray: 3 9; stroke-linecap: round; opacity: .55; }
+  .timeline .bracket { fill: none; stroke: var(--dim); stroke-width: 1.5; }
+  .timeline .live { fill: var(--live); }
+  .timeline text { font-family: var(--font-mono); font-size: 15px; font-weight: 500; fill: var(--dim); letter-spacing: .02em; }
+  .timeline text.tick { font-size: 17px; }
+  .timeline text.note { font-family: var(--font-display); font-size: 27px; font-weight: 500; letter-spacing: -.01em; fill: var(--paper); }
+  .timeline text.note.quiet { fill: var(--dim); }
+
+  .repair { position: absolute; left: 1180px; top: 160px; width: 348px; height: 310px; z-index: 4; }
+  .repair .ground { stroke: var(--line); stroke-width: 1.5; }
+  .repair .edge { fill: var(--bg); stroke: var(--dim); stroke-width: 2; stroke-linejoin: round; }
+  .repair .detail { fill: none; stroke: var(--dim); stroke-width: 1.5; stroke-linecap: round; }
+  .repair .wire { fill: none; stroke: var(--violet); stroke-width: 2.5; stroke-linecap: round; }
+  .footer { position: absolute; left: 72px; right: 72px; bottom: 43px; display: flex; justify-content: space-between; align-items: center; }
+  .footer p { font-size: 29px; font-weight: 500; }
+  .footer .signature { display: flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 16px; color: var(--violet-2); }
+  .signature img { width: 25px; height: auto; }
+</style></head>
+<body><main class="card">
+  <header class="masthead"><span class="edition">SERVICE NOTICE</span><span class="address">memoh.ai</span></header>
+
+  <p class="lead">Routine maintenance on the Kibotos cluster, every day</p>
+  <h1 class="window">04:00–04:30<span class="tz">GMT+8</span></h1>
+
+  <svg class="timeline" viewBox="0 0 1456 240" role="img" aria-label="Timeline of the daily maintenance window: virtual machines keep running throughout; data and control connections may pause for one to two minutes">
+    <rect class="band" x="265" y="34" width="530" height="168"/>
+    <line class="bound" x1="265" y1="26" x2="265" y2="210"/>
+    <line class="bound" x1="795" y1="26" x2="795" y2="210"/>
+    <text x="530" y="62" text-anchor="middle">MAINTENANCE WINDOW</text>
+    <text class="tick" x="265" y="234" text-anchor="middle">04:00</text>
+    <text class="tick" x="795" y="234" text-anchor="middle">04:30</text>
+
+    <text x="0" y="98">VIRTUAL MACHINES</text>
+    <line class="vm" x1="0" y1="116" x2="1060" y2="116"/>
+    <circle class="live" cx="1060" cy="116" r="5.5"/>
+    <text class="note" x="1094" y="125">keep running</text>
+
+    <text x="0" y="166">DATA + CONTROL CONNECTIONS</text>
+    <line class="conn" x1="0" y1="184" x2="477" y2="184"/>
+    <line class="drop" x1="483" y1="184" x2="506" y2="184"/>
+    <line class="conn" x1="512" y1="184" x2="1060" y2="184"/>
+    <path class="bracket" d="M477 196 v9 h35 v-9"/>
+    <text x="494" y="228" text-anchor="middle">1–2 MIN</text>
+    <text class="note quiet" x="1094" y="193">may pause for 1–2 min</text>
+  </svg>
+
+  <svg class="repair" viewBox="0 0 348 310" role="img" aria-label="A line-art wrench turns a hex bolt, with two spare nuts on the ground below">
+    <line class="ground" x1="64" y1="292" x2="304" y2="292"/>
+    <g transform="translate(-46 22) scale(1.25)">
+      <g transform="translate(196 148) rotate(-35)">
+        <rect class="edge" x="12" y="-8" width="112" height="16" rx="8"/>
+        <circle class="edge" cx="0" cy="0" r="18"/>
+        <circle class="edge" cx="0" cy="0" r="10"/>
+      </g>
+      <path class="edge" d="M196 148 m12 0 l-6 10.4 l-12 0 l-6 -10.4 l6 -10.4 l12 0 Z"/>
+      <circle class="detail" cx="196" cy="148" r="4"/>
+      <path class="wire" d="M162 166 A 27 27 0 0 1 165 128"/>
+      <path class="wire" d="M165 128 l-8 5 M165 128 l2 9"/>
+      <path class="detail" d="M170 114 l-8 -9 M186 106 l-4 -12" opacity=".7"/>
+    </g>
+    <path class="edge" d="M130 286 m8 0 l-4 6.9 l-8 0 l-4 -6.9 l4 -6.9 l8 0 Z"/>
+    <circle class="detail" cx="130" cy="286" r="2.8"/>
+    <path class="edge" d="M166 287 m7 0 l-3.5 6 l-7 0 l-3.5 -6 l3.5 -6 l7 0 Z"/>
+  </svg>
+
+  <footer class="footer"><p>Thank you for your understanding.</p><span class="signature"><img src="../assets/logo.png" alt="">Memoh</span></footer>
+</main></body></html>

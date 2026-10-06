@@ -1,0 +1,8 @@
+v22.11.0
+10.9.0
+ffmpeg version 8.1.1 Copyright (c) 2000-2026 the FFmpeg developers
+total 216
+drwxr-xr-x@ 4 yanbo  staff     128 Sep 15 02:17 .
+drwxr-xr-x@ 5 yanbo  staff     160 Sep 15 02:17 ..
+-rw-r--r--@ 1 yanbo  staff    2639 Sep 15 02:17 home.html
+-rw-r--r--@ 1 yanbo  staff  106072 Sep 15 02:17 logo.png

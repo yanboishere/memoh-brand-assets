@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="gif.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+<style>
+  * { letter-spacing: 0; }
+  .copy { position: absolute; top: 112px; left: 56px; width: 351px; }
+  .heading { font-size: 44px; line-height: 1.1; font-weight: 700; color: var(--violet); }
+  .description { margin-top: 24px; font-size: 19px; line-height: 1.5; color: var(--dim); }
+  .description strong { font-weight: 600; color: var(--paper); }
+  .steps { margin-top: 26px; list-style: none; }
+  .steps li { display: flex; align-items: center; gap: 16px; height: 48px; margin-top: 6px; padding: 0 16px; border: 1px solid transparent; border-radius: 9px; font-size: 17px; color: var(--dim); }
+  .steps .number { font-family: var(--font-mono); font-size: 16px; color: var(--violet); }
+  .steps .active { border-color: var(--violet); background: var(--raise); color: var(--paper); }
+  .window-frame { position: absolute; top: 112px; left: 448px; width: 696px; height: 484px; border-radius: 9.16px; box-shadow: 0 12px 36px #17151f0d; outline: 1px solid #dedee3; }
+  .window { position: relative; width: 497.142857px; height: 345.714286px; transform: scale(1.4); transform-origin: top left; background: #fff; border-radius: 10px; overflow: hidden; font-family: Inter, sans-serif; color: #27272a; }
+  .icon { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+  .tabbar { color: #71717a; white-space: nowrap; background: #f4f4f5; height: 40px; display: flex; box-shadow: inset 0 -1px #dedee3; }
+  .tab-group { align-items: center; height: 40px; padding-left: 88px; display: flex; position: relative; }
+  .traffic { gap: 8px; display: flex; position: absolute; top: 13px; left: 14px; }
+  .traffic i { background: #ff5f57; border-radius: 50%; width: 12px; height: 12px; box-shadow: inset 0 0 0 1px #0000000d; }
+  .traffic i:nth-child(2) { background: #febc2e; }
+  .traffic i:nth-child(3) { background: #28c840; }
+  .navigation { gap: 2px; padding-right: 8px; display: flex; }
+  .navigation svg { width: 28px; height: 28px; padding: 6px; }
+  .tab { align-items: center; gap: 9px; width: 175px; height: 35px; margin-top: 5px; padding: 0 13px 5px; font-size: 12px; line-height: 1.3; display: flex; position: relative; color: #27272a; }
+  .tab-shape { position: absolute; inset: 0 -8px; width: 191px; height: 35px; }
+  .tab span,.tab .icon { position: relative; }
+  .tab .icon { margin-left: auto; width: 12px; height: 12px; color: #71717a; }
+  .new-tab { width: 16px; height: 16px; margin-left: 16px; }
+  .welcome { display: flex; flex-direction: column; gap: 18px; padding: 22px 24px 0; }
+  h4 { text-align: center; font-size: 22px; font-weight: 500; line-height: 1.5; }
+  .dock { width: 100%; max-width: 540px; margin-inline: auto; }
+  .composer { background: #fafafa; border: 1px solid #dedee3; border-radius: 16px; padding: 10px; }
+  .input { color: #71717a; height: 33px; font-size: 12px; line-height: 1.5; }
+  .actions { display: flex; align-items: center; gap: 12px; }
+  .add { width: 16px; height: 16px; color: #71717a; }
+  .model { align-items: center; gap: 6px; margin-left: auto; font-size: 10px; display: flex; }
+  .model svg { width: 11px; height: 11px; }
+  .send { border-radius: 50%; place-items: center; width: 23px; height: 23px; display: grid; color: #a1a1aa; background: #e4e4e7; }
+  .send svg { width: 13px; height: 13px; }
+  .context { color: #71717a; align-items: center; gap: 7px; min-height: 34px; padding: 0 5px; font-size: 11px; display: flex; }
+  .context-item { white-space: nowrap; align-items: center; gap: 4px; min-width: 0; display: inline-flex; }
+  .context-item svg,.context-item img { object-fit: contain; flex-shrink: 0; width: 12px; height: 12px; }
+  .agent-picker { position: relative; flex-shrink: 0; }
+  .ring { border: 2px solid #d4d4d8; border-top-color: #71717a; border-radius: 50%; flex-shrink: 0; width: 14px; height: 14px; margin-left: auto; }
+  .menu { z-index: 4; color: #27272a; background: #fff; border: 1px solid #dedee3; border-radius: 8px; width: 177px; padding: 5px; position: absolute; top: 100%; left: 0; box-shadow: 0 5px 14px #00000012; opacity: 0; visibility: hidden; transform: translateY(-4px); transition: opacity .18s ease, transform .18s ease, visibility .18s; }
+  .menu.open { opacity: 1; visibility: visible; transform: translateY(0); }
+  .menu small { color: #71717a; padding: 3px 7px 5px; font-size: 11px; display: block; line-height: 1.5; }
+  .option { border-radius: 4px; align-items: center; gap: 8px; height: 29px; padding: 5px 7px; font-size: 12px; display: flex; }
+  .option.hovered { background: #f0f0f2; }
+  .option img { width: 15px; height: 15px; }
+  .option .check { width: 12px; height: 12px; margin-left: auto; visibility: hidden; }
+  .option.selected .check { visibility: visible; }
+  .cursor { position: absolute; z-index: 9; width: 24px; height: 28px; pointer-events: none; left: 430px; top: 305px; transition: left .6s ease, top .6s ease; }
+  .cursor svg { width: 24px; height: 28px; transition: transform .12s; transform-origin: 3px 2px; }
+  .cursor.click svg { transform: scale(.85); }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="mark"><img src="../assets/logo.png" alt="Memoh logo"><span>Memoh</span></div>
+  <div class="copy">
+    <h1 class="heading">Deploy Claude<br>Code &amp; Codex.</h1>
+    <p class="description">Deploy <strong>Claude Code</strong> or <strong>Codex</strong> on a Memoh cloud computer through <strong>ACP</strong>, with your own subscription or models from Memoh.</p>
+  </div>
+  <div class="window-frame"><div class="window" id="window">
+    <div class="tabbar"><div class="tab-group">
+      <div class="traffic"><i></i><i></i><i></i></div>
+      <div class="navigation"><svg class="icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18m5-12 3 3-3 3"/></svg><svg class="icon" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg><svg class="icon" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></div>
+      <div class="tab"><svg class="tab-shape" viewBox="-8 0 191 35" preserveAspectRatio="none"><path d="M -8 35 L -7.5 34.5 A 7.5 7.5 0 0 0 .5 27 L .5 8 A 7.5 7.5 0 0 1 8 .5 L 167 .5 A 7.5 7.5 0 0 1 174.5 8 L 174.5 27 A 7.5 7.5 0 0 0 182.5 34.5 L 183 35" fill="#fff" stroke="#dedee3"/></svg><span>New Session</span><svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></div>
+      <svg class="icon new-tab" viewBox="0 0 24 24"><path d="M5 12h14M12 5v14"/></svg>
+    </div></div>
+    <div class="welcome">
+      <h4>Where should we begin?</h4>
+      <div class="dock">
+        <div class="composer">
+          <div class="input">What would you like to do?</div>
+          <div class="actions"><svg class="icon add" viewBox="0 0 24 24"><path d="M5 12h14M12 5v14"/></svg><div class="model"><span id="model">DeepSeek V4.1 Flash</span><svg class="icon" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></div><span class="send"><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7M12 19V5"/></svg></span></div>
+        </div>
+        <div class="context">
+          <span class="context-item"><svg class="icon" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg><span>Cloud Computer</span></span>
+          <span class="context-item"><svg class="icon" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg><span>Daily Planner</span></span>
+          <span class="agent-picker context-item" id="picker"><img id="agent-icon" alt=""><span id="agent-name">Memoh</span><svg class="icon" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg><span class="menu" id="menu"><small>Agent</small></span></span>
+          <span class="context-item" id="permission" hidden><svg class="icon" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg><span>Default</span></span>
+          <span class="ring"></span>
+        </div>
+      </div>
+    </div>
+    <div class="cursor" id="cursor"><svg viewBox="0 0 24 28" fill="none"><path d="M3 2L21 15L12.5 16.5L8.5 25L3 2Z" fill="#28272d" stroke="white" stroke-width="2" stroke-linejoin="round"/></svg></div>
+  </div></div>
+  <div class="site">memoh.ai</div>
+</div>
+<script>
+  // Agent assets and composer state match the official AgentDemo component.
+  const agents = [
+    { name: 'Memoh', model: 'DeepSeek V4.1 Flash', icon: 'https://memoh.ai/demo/memoh.svg' },
+    { name: 'Claude Code', model: 'Claude Sonnet 5', icon: 'https://memoh.ai/brands/claude-code-color.svg' },
+    { name: 'Codex', model: 'GPT 6 Astra', icon: 'https://memoh.ai/brands/codex-blob.svg' }
+  ];
+  const $ = id => document.getElementById(id);
+  agents.forEach((agent, index) => {
+    const option = document.createElement('span');
+    option.className = 'option';
+    option.id = 'agent-' + index;
+    option.innerHTML = `<img src="${agent.icon}" alt=""><span>${agent.name}</span><svg class="icon check" viewBox="0 0 24 24"><path d="m20 6-11 11-5-5"/></svg>`;
+    $('menu').append(option);
+  });
+  const select = index => {
+    $('agent-name').textContent = agents[index].name;
+    $('agent-icon').src = agents[index].icon;
+    $('model').textContent = agents[index].model;
+    $('permission').hidden = index === 0;
+    agents.forEach((_, i) => $('agent-' + i).classList.toggle('selected', i === index));
+  };
+  const move = id => {
+    const rect = $(id).getBoundingClientRect();
+    const root = $('window').getBoundingClientRect();
+    const scale = root.width / $('window').offsetWidth;
+    $('cursor').style.left = (rect.left - root.left + rect.width * .6) / scale - 3 + 'px';
+    $('cursor').style.top = (rect.top - root.top + rect.height * .6) / scale - 2 + 'px';
+  };
+  const click = () => {
+    $('cursor').classList.add('click');
+    setTimeout(() => $('cursor').classList.remove('click'), 180);
+  };
+  const cycle = () => {
+    agents.forEach((_, index) => {
+      const next = (index + 1) % agents.length;
+      const at = (time, fn) => setTimeout(fn, index * 8000 + time);
+      at(900, () => move('picker'));
+      at(1700, () => { click(); $('menu').classList.add('open'); });
+      at(2500, () => move('agent-' + next));
+      at(3100, () => $('agent-' + next).classList.add('hovered'));
+      at(4000, () => { click(); select(next); });
+      at(4450, () => $('menu').classList.remove('open'));
+      at(4700, () => $('agent-' + next).classList.remove('hovered'));
+      at(5700, () => {
+        $('cursor').style.left = '430px';
+        $('cursor').style.top = '305px';
+      });
+    });
+  };
+  select(0);
+  if (new URLSearchParams(location.search).has('still')) {
+    select(1);
+  } else {
+    cycle();
+    setInterval(cycle, 24000);
+  }
+</script>
+</body>
+</html>

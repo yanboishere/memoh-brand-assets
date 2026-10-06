@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="brand.css">
+<style>
+  .card { background: #fff; color: #17151f; }
+  .masthead { position: absolute; top: 48px; left: 72px; right: 72px; display: flex; align-items: center; justify-content: space-between; padding-bottom: 22px; border-bottom: 1px solid #dedbe5; }
+  .edition, .address { font-family: var(--font-mono); font-size: 19px; font-weight: 500; letter-spacing: 0; }
+  .edition { display: flex; align-items: center; gap: 12px; }
+  .edition::before { content: ''; width: 10px; height: 10px; background: #7543ff; }
+  .address { color: #6d28d9; }
+  .announcement { position: absolute; top: 128px; left: 0; width: 100%; text-align: center; }
+  .announcement p { color: #6d28d9; font-size: 49px; line-height: 1.2; font-weight: 500; letter-spacing: 0; }
+  .announcement h1 { margin-top: 0; color: #17151f; font-size: 218px; line-height: 1.12; font-weight: 700; letter-spacing: 0; }
+  .stage { position: absolute; top: 468px; left: 0; width: 1600px; height: 320px; }
+  .stage::before { content: ''; position: absolute; left: 72px; right: 72px; top: 231px; border-top: 1px solid #e6e2ed; }
+  .plinth { position: absolute; left: 460px; top: 201px; width: 680px; height: 91px; border-radius: 50% / 24%; background: linear-gradient(90deg, #d3cbdc 0%, #f7f5fa 26%, #fff 48%, #e5ddec 79%, #c1b6d0 100%); box-shadow: 0 20px 24px -20px #66547e; }
+  .plinth::before { content: ''; position: absolute; left: 0; top: -25px; width: 100%; height: 67px; border: 1px solid #e0d9ea; border-radius: 50%; background: linear-gradient(175deg, #fff 25%, #f0eaf8 100%); }
+  .plinth::after { content: ''; position: absolute; top: 26px; left: 15px; right: 15px; height: 28px; border-bottom: 2px solid #7543ff; border-radius: 50%; opacity: .8; }
+  .logo-shadow { position: absolute; left: 634px; top: 187px; width: 344px; height: 33px; border-radius: 50%; background: #59436e; filter: blur(17px); opacity: .24; }
+  .brand-object { position: absolute; width: 282px; height: auto; left: 659px; top: -31px; filter: drop-shadow(1px 2px 0 #6130df) drop-shadow(2px 4px 0 #6130df) drop-shadow(3px 7px 0 #5426c6) drop-shadow(0 18px 14px #6c3ef526); }
+  .stage-label { position: absolute; top: 177px; font-family: var(--font-mono); font-size: 15px; font-weight: 500; color: #787181; }
+  .stage-label.left { left: 72px; }
+  .stage-label.right { right: 72px; }
+  .footer { position: absolute; left: 72px; right: 72px; bottom: 43px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #dedbe5; padding-top: 25px; }
+  .footer p { font-size: 29px; font-weight: 500; letter-spacing: 0; }
+  .footer .signature { display: flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 16px; color: #6d28d9; }
+  .signature img { width: 25px; height: auto; }
+</style></head>
+<body><main class="card">
+  <header class="masthead"><span class="edition">OFFICIAL LAUNCH</span><span class="address">memoh.ai</span></header>
+  <div class="announcement"><p>Now officially live.</p><h1>Memoh</h1></div>
+  <div class="stage" aria-label="Memoh brand mark on a sculptural launch podium">
+    <span class="stage-label left">A NEW CHAPTER</span>
+    <span class="stage-label right">BUILT FOR AGENTS</span>
+    <div class="plinth" aria-hidden="true"></div>
+    <div class="logo-shadow" aria-hidden="true"></div>
+    <img class="brand-object" src="../assets/logo.png" alt="Memoh logo">
+  </div>
+  <footer class="footer"><p>Every agent gets its own computer.</p><span class="signature"><img src="../assets/logo.png" alt="">Memoh</span></footer>
+</main></body></html>

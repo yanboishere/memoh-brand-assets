@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<style>
+  /* Memoh meme · "i am once again asking" · flat illustration, 1600x1200 */
+  html, body { margin: 0; padding: 0; }
+</style></head>
+<body>
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Memoh mascot wearing a brown winter parka, standing on a snowy suburban street">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d7dde8"/>
+      <stop offset="1" stop-color="#eef0f3"/>
+    </linearGradient>
+    <linearGradient id="coat" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0" stop-color="#75665a"/>
+      <stop offset="1" stop-color="#63564b"/>
+    </linearGradient>
+    <radialGradient id="vig" cx="0.5" cy="0.45" r="0.8">
+      <stop offset="0.7" stop-color="#3a2a6e" stop-opacity="0"/>
+      <stop offset="1" stop-color="#3a2a6e" stop-opacity="0.08"/>
+    </radialGradient>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.2  0 0 0 0 0.18  0 0 0 0 0.25  0 0 0 0.04 0"/>
+    </filter>
+  </defs>
+
+  <!-- sky -->
+  <rect width="1600" height="760" fill="url(#sky)"/>
+
+  <!-- distant houses -->
+  <g opacity="0.75">
+    <rect x="270" y="596" width="190" height="96" fill="#e9e6df"/>
+    <path d="M255 600 L365 540 L475 600 Z" fill="#b3aca0"/>
+    <rect x="316" y="628" width="34" height="34" fill="#c2bfb8"/>
+    <rect x="392" y="628" width="34" height="34" fill="#c2bfb8"/>
+    <rect x="1150" y="560" width="230" height="120" fill="#ece9e2"/>
+    <path d="M1136 566 L1265 492 L1394 566 Z" fill="#b8b1a4"/>
+    <rect x="1196" y="596" width="40" height="42" fill="#c6c3ba"/>
+    <rect x="1288" y="596" width="40" height="42" fill="#c6c3ba"/>
+  </g>
+
+  <!-- bare trees -->
+  <g stroke="#7f8490" fill="none" stroke-linecap="round" opacity="0.8">
+    <g stroke-width="14"><path d="M140 760 C 138 640, 132 560, 128 470"/></g>
+    <g stroke-width="7"><path d="M132 560 C 100 500, 76 460, 56 420 M134 610 C 170 540, 196 500, 214 452 M129 500 C 112 440, 108 400, 112 356"/></g>
+    <g stroke-width="4"><path d="M76 470 C 60 440, 52 420, 50 396 M196 500 C 216 470, 228 448, 232 420 M112 396 C 100 372, 96 352, 98 330"/></g>
+    <g stroke-width="12"><path d="M420 700 C 424 620, 430 560, 428 500"/></g>
+    <g stroke-width="6"><path d="M428 560 C 456 516, 478 490, 500 466 M426 596 C 396 550, 378 522, 368 492"/></g>
+    <g stroke-width="16"><path d="M1078 720 C 1074 600, 1068 500, 1064 400"/></g>
+    <g stroke-width="8"><path d="M1068 520 C 1032 460, 1006 424, 986 380 M1070 470 C 1108 420, 1136 388, 1160 348 M1065 420 C 1046 370, 1040 336, 1044 300"/></g>
+    <g stroke-width="4"><path d="M1006 424 C 988 396, 978 374, 974 348 M1136 388 C 1154 362, 1164 340, 1168 312 M1044 336 C 1032 312, 1028 292, 1030 272"/></g>
+    <g stroke-width="13"><path d="M1490 740 C 1492 640, 1496 560, 1494 480"/></g>
+    <g stroke-width="6"><path d="M1494 560 C 1524 516, 1546 488, 1566 456 M1493 520 C 1466 476, 1450 448, 1442 416"/></g>
+  </g>
+
+  <!-- lawn -->
+  <rect x="0" y="720" width="1600" height="480" fill="#93a26f"/>
+  <rect x="0" y="720" width="1600" height="60" fill="#a2b07e"/>
+
+  <!-- road entering from the left -->
+  <path d="M0 694 C 140 698, 260 706, 322 722 C 348 730, 348 756, 322 764 C 260 778, 140 788, 0 792 Z" fill="#c6cad2"/>
+  <path d="M0 694 C 140 698, 260 706, 322 722" fill="none" stroke="#eef1f5" stroke-width="8" opacity="0.9" stroke-linecap="round"/>
+
+  <!-- snow patches (organic) -->
+  <g fill="#f4f6f9">
+    <path d="M60 1050 C 140 1020, 300 1022, 380 1060 C 430 1086, 400 1130, 300 1140 C 180 1152, 40 1120, 30 1084 C 26 1066, 40 1056, 60 1050 Z"/>
+    <path d="M1180 1010 C 1300 980, 1500 990, 1570 1030 C 1610 1056, 1560 1102, 1440 1112 C 1310 1122, 1150 1090, 1150 1050 C 1150 1030, 1160 1016, 1180 1010 Z"/>
+    <path d="M1400 860 C 1460 846, 1550 850, 1580 872 C 1600 890, 1560 908, 1490 910 C 1430 912, 1380 894, 1386 876 Z" opacity="0.95"/>
+    <path d="M420 780 C 470 770, 540 772, 566 786 C 584 798, 550 810, 496 812 C 450 813, 408 796, 420 780 Z" opacity="0.85"/>
+    <path d="M1080 774 C 1120 766, 1180 768, 1200 780 C 1214 790, 1180 800, 1136 800 C 1100 800, 1068 786, 1080 774 Z" opacity="0.8"/>
+  </g>
+
+  <!-- green post -->
+  <g>
+    <rect x="286" y="796" width="34" height="108" rx="12" fill="#3f7d64"/>
+    <ellipse cx="303" cy="798" rx="17" ry="11" fill="#4c8f74"/>
+  </g>
+
+  <!-- winter shrubs right -->
+  <g>
+    <g fill="#857c62">
+      <path d="M1200 756 C 1210 716, 1260 700, 1290 720 C 1320 700, 1370 710, 1378 744 C 1408 736, 1440 752, 1436 776 L 1190 776 Z"/>
+      <path d="M1420 764 C 1432 728, 1486 716, 1512 740 C 1544 728, 1580 744, 1576 772 L 1416 772 Z"/>
+    </g>
+    <path d="M1216 738 C 1250 724, 1300 720, 1330 728 M1360 740 C 1390 730, 1420 732, 1436 740" stroke="#eef1f5" stroke-width="7" fill="none" stroke-linecap="round" opacity="0.85"/>
+  </g>
+
+  <!-- ===== figure ===== -->
+  <!-- hood behind the head -->
+  <ellipse cx="800" cy="462" rx="312" ry="270" fill="#786a5c"/>
+  <ellipse cx="800" cy="470" rx="274" ry="242" fill="#463f38"/>
+
+  <!-- coat body -->
+  <path d="M300 1200
+           C 306 1030, 330 900, 420 812
+           C 480 754, 590 722, 800 720
+           C 1010 722, 1120 754, 1180 812
+           C 1270 900, 1294 1030, 1300 1200 Z" fill="url(#coat)"/>
+  <!-- shoulder seams -->
+  <path d="M470 1200 C 464 1020, 480 902, 522 832 M1130 1200 C 1136 1020, 1120 902, 1078 832" fill="none" stroke="#57504a" stroke-width="5" opacity="0.6"/>
+  <!-- zipper -->
+  <line x1="800" y1="784" x2="800" y2="1200" stroke="#4e463f" stroke-width="7"/>
+  <rect x="790" y="796" width="20" height="32" rx="5" fill="#3c3630"/>
+  <!-- chest pockets -->
+  <g fill="#6a5c50" stroke="#57504a" stroke-width="4">
+    <rect x="568" y="1006" width="152" height="114" rx="12"/>
+    <rect x="880" y="1006" width="152" height="114" rx="12"/>
+  </g>
+  <path d="M568 1046 h152 M880 1046 h152" stroke="#57504a" stroke-width="4"/>
+  <circle cx="644" cy="1026" r="6" fill="#4e463f"/>
+  <circle cx="956" cy="1026" r="6" fill="#4e463f"/>
+
+  <!-- head -->
+  <image href="../assets/logo-solid.png" x="530" y="246" width="540" height="476"/>
+
+
+  <!-- unify -->
+  <rect width="1600" height="1200" fill="url(#vig)"/>
+  <rect width="1600" height="1200" filter="url(#grain)" opacity="0.5"/>
+</svg>
+</body></html>

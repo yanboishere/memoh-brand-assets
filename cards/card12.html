@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="brand.css">
+<style>
+  /* Hallmark · pre-emit critique: P4 H4 E4 S5 R4 V5 */
+  /* Twitter 1,000 followers · split-flap counter ticks over on the horizon, mascot watching */
+  :root { --ground-shadow: #59436e; }
+
+  .masthead { position: absolute; top: 48px; left: 72px; right: 72px; display: flex; align-items: center; justify-content: space-between; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+  .edition, .address { font-family: var(--font-mono); font-size: 19px; font-weight: 500; }
+  .edition { display: flex; align-items: center; gap: 12px; }
+  .edition::before { content: ''; width: 10px; height: 10px; background: var(--violet); }
+  .address { color: var(--violet-2); }
+
+  .lead { position: absolute; top: 168px; left: 72px; color: var(--violet-2); font-size: 46px; font-weight: 500; }
+  .count { position: absolute; top: 244px; left: 72px; font-size: 104px; line-height: 1.06; font-weight: 700; letter-spacing: -.02em; color: var(--paper); }
+  .handle { position: absolute; top: 374px; left: 72px; font-family: var(--font-mono); font-size: 30px; font-weight: 500; color: var(--violet-2); }
+
+  .flap-row { position: absolute; left: 72px; top: 430px; display: flex; align-items: flex-end; gap: 16px; }
+  .cell { position: relative; width: 150px; height: 210px; background: var(--raise); border: 1.5px solid var(--line); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+  .cell span { font-family: var(--font-mono); font-size: 148px; font-weight: 700; color: var(--paper); }
+  .cell::after { content: ''; position: absolute; left: 0; right: 0; top: 50%; border-top: 1.5px solid var(--line); }
+  .cell.fresh span { color: var(--violet); }
+  .comma { font-family: var(--font-mono); font-size: 110px; font-weight: 700; color: var(--paper); line-height: 1; padding-bottom: 2px; }
+
+  .horizon { position: absolute; left: 72px; right: 72px; top: 640px; border-top: 1px solid var(--line); }
+  .stage-label { position: absolute; top: 658px; font-family: var(--font-mono); font-size: 15px; font-weight: 500; color: var(--dim); }
+  .stage-label.left { left: 72px; }
+  .stage-label.right { right: 72px; }
+
+  .fly { position: absolute; left: 880px; top: 425px; width: 200px; height: 200px; }
+  .fly .xlogo { fill: var(--paper); }
+
+  .mascot { position: absolute; left: 1170px; top: 481px; width: 180px; height: auto; z-index: 3; }
+  .mascot-shadow { position: absolute; left: 1158px; top: 630px; width: 204px; height: 17px; border-radius: 50%; background: var(--ground-shadow); filter: blur(12px); opacity: .2; z-index: 2; }
+
+  .footer { position: absolute; left: 72px; right: 72px; bottom: 43px; display: flex; justify-content: space-between; align-items: center; }
+  .footer p { font-size: 29px; font-weight: 500; }
+  .footer .signature { display: flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 16px; color: var(--violet-2); }
+  .signature img { width: 25px; height: auto; }
+</style></head>
+<body><main class="card">
+  <header class="masthead"><span class="edition">MILESTONE</span><span class="address">memoh.ai</span></header>
+
+  <p class="lead">The counter just ticked over</p>
+  <h1 class="count">One thousand of you.</h1>
+  <p class="handle">@memoh_ai</p>
+
+  <div class="flap-row" aria-label="Split-flap counter reading 1,000">
+    <div class="cell"><span>1</span></div>
+    <div class="comma">,</div>
+    <div class="cell"><span>0</span></div>
+    <div class="cell"><span>0</span></div>
+    <div class="cell fresh"><span>0</span></div>
+  </div>
+
+  <svg class="fly" viewBox="0 0 200 200" role="img" aria-label="X logo">
+    <path class="xlogo" transform="translate(45 45) scale(4.583)" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+  </svg>
+
+  <div class="horizon" aria-hidden="true"></div>
+  <span class="stage-label left">FOLLOWERS ON TWITTER</span>
+  <span class="stage-label right">STILL TICKING</span>
+
+  <div class="mascot-shadow" aria-hidden="true"></div>
+  <img class="mascot" src="../assets/logo.png" alt="Memoh mascot watching the counter tick over">
+
+  <footer class="footer"><p>Thank you for following along.</p><span class="signature"><img src="../assets/logo.png" alt="">Memoh</span></footer>
+</main></body></html>

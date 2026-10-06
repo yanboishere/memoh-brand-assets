@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="brand.css">
+<style>
+  /* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V5 */
+  /* Giveaway card · simplified: headline + two facts + prize stack (no lead line, no WINNERS column) */
+
+  .masthead { position: absolute; top: 48px; left: 72px; right: 72px; display: flex; align-items: center; justify-content: space-between; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+  .edition, .address { font-family: var(--font-mono); font-size: 19px; font-weight: 500; }
+  .edition { display: flex; align-items: center; gap: 12px; }
+  .edition::before { content: ''; width: 10px; height: 10px; background: var(--violet); }
+  .address { color: var(--violet-2); }
+
+  h1 { position: absolute; top: 212px; left: 72px; width: 820px; font-size: 96px; }
+  h1 span { white-space: nowrap; }
+
+  .how { position: absolute; left: 72px; top: 604px; width: 820px; display: flex; gap: 88px; }
+  .how dt { font-family: var(--font-mono); font-size: 15px; font-weight: 500; color: var(--dim); letter-spacing: .08em; }
+  .how dd { margin-top: 12px; font-size: 32px; font-weight: 500; color: var(--paper); white-space: nowrap; }
+
+  .prizes { position: absolute; left: 892px; top: 238px; width: 640px; height: 470px; }
+  .prizes .pass { fill: var(--bg); stroke: var(--line); stroke-width: 2; }
+  .prizes .pass-top { fill: var(--raise); stroke: var(--violet); stroke-width: 2.5; }
+  .prizes text { font-family: var(--font-mono); }
+  .prizes .tier-lead { font-family: var(--font-display); font-size: 42px; font-weight: 700; fill: var(--violet-2); }
+  .prizes .tier-dim { font-family: var(--font-display); font-size: 30px; font-weight: 700; fill: var(--dim); opacity: .55; }
+  .prizes .meta { font-size: 15px; font-weight: 500; fill: var(--dim); letter-spacing: .08em; }
+  .prizes .price { font-family: var(--font-display); font-size: 34px; font-weight: 600; fill: var(--paper); }
+  .prizes .price-unit { font-size: 19px; font-weight: 500; fill: var(--dim); }
+  .prizes .give { font-family: var(--font-display); font-size: 76px; font-weight: 700; fill: var(--violet); letter-spacing: -.02em; }
+
+  .horizon { position: absolute; left: 72px; right: 72px; top: 768px; border-top: 1px solid var(--line); }
+
+  .footer { position: absolute; left: 72px; right: 72px; bottom: 43px; display: flex; justify-content: space-between; align-items: center; }
+  .footer p { font-size: 29px; font-weight: 500; }
+  .footer .signature { display: flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 16px; color: var(--violet-2); }
+  .signature img { width: 25px; height: auto; }
+</style></head>
+<body><main class="card">
+  <header class="masthead"><span class="edition">TELL US YOUR STORY</span><span class="address">memoh.ai</span></header>
+
+  <h1><span>Share your</span><br><span>Memoh story.</span><br><span>We'd give you Pro.</span></h1>
+
+  <dl class="how">
+    <div>
+      <dt>TO ENTER</dt>
+      <dd>Quote this post</dd>
+    </div>
+    <div>
+      <dt>ENTRIES CLOSE</dt>
+      <dd>Oct 14, 23:59 GMT+8</dd>
+    </div>
+  </dl>
+
+  <svg class="prizes" viewBox="0 0 640 470" role="img" aria-label="Three stacked Memoh Pro passes worth sixty dollars a month each, three to give away">
+    <!-- back pass -->
+    <g transform="rotate(-7 320 235)">
+      <rect class="pass" x="104" y="36" width="432" height="150" rx="16"/>
+      <text class="tier-dim" x="140" y="86">Pro</text>
+    </g>
+    <!-- middle pass -->
+    <g transform="rotate(-3.5 320 235)">
+      <rect class="pass" x="104" y="126" width="432" height="150" rx="16"/>
+      <text class="tier-dim" x="140" y="176">Pro</text>
+    </g>
+    <!-- front pass -->
+    <g transform="rotate(1 320 235)">
+      <rect class="pass-top" x="104" y="240" width="432" height="210" rx="16"/>
+      <text class="tier-lead" x="140" y="332">Pro</text>
+      <text class="price" x="140" y="396">$60<tspan class="price-unit" dx="8">/ MONTH</tspan></text>
+      <text class="meta" x="500" y="300" text-anchor="end">TO GIVE</text>
+      <text class="give" x="500" y="396" text-anchor="end">× 3</text>
+    </g>
+  </svg>
+
+  <div class="horizon" aria-hidden="true"></div>
+
+  <footer class="footer"><p>We read every one of them.</p><span class="signature"><img src="../assets/logo.png" alt="">Memoh</span></footer>
+</main></body></html>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="brand.css">
+<style>
+  /* Hallmark · pre-emit critique: P4 H5 E4 S5 R4 V5 */
+  /* Access reopens · boarding-pass hero: waitlist now boarding, limited seats */
+  :root { --ground-shadow: #59436e; }
+
+  .masthead { position: absolute; top: 48px; left: 72px; right: 72px; display: flex; align-items: center; justify-content: space-between; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+  .edition, .address { font-family: var(--font-mono); font-size: 19px; font-weight: 500; }
+  .edition { display: flex; align-items: center; gap: 12px; }
+  .edition::before { content: ''; width: 10px; height: 10px; background: var(--violet); }
+  .address { color: var(--violet-2); }
+
+  .lead { position: absolute; top: 168px; left: 72px; color: var(--violet-2); font-size: 46px; font-weight: 500; }
+  .count { position: absolute; top: 244px; left: 72px; font-size: 104px; line-height: 1.06; font-weight: 700; letter-spacing: -.02em; color: var(--paper); }
+
+  .ticket { position: absolute; left: 240px; top: 424px; width: 1120px; height: 320px; transform: rotate(-1.2deg); filter: drop-shadow(0 16px 20px rgba(89, 67, 110, 0.28)); }
+  .ticket .paper-main { fill: var(--bg); stroke: var(--line); stroke-width: 2; }
+  .ticket .stub { fill: var(--bg); stroke: var(--line); stroke-width: 2; }
+  .ticket .notch-rim { fill: none; stroke: var(--line); stroke-width: 2; }
+  .ticket .notch { fill: var(--bg); }
+  .ticket .perf { stroke: var(--line); stroke-width: 2.5; stroke-dasharray: 2 11; stroke-linecap: round; }
+  .ticket text { font-family: var(--font-mono); }
+  .ticket .lbl { font-size: 14px; font-weight: 500; fill: var(--dim); letter-spacing: .08em; }
+  .ticket .val { font-family: var(--font-display); font-size: 33px; font-weight: 600; fill: var(--paper); }
+  .ticket .val-mono { font-size: 23px; font-weight: 500; fill: var(--violet-2); }
+  .ticket .brandline { font-size: 15px; font-weight: 500; fill: var(--dim); letter-spacing: .1em; }
+  .ticket .admit { font-size: 32px; font-weight: 700; fill: #ffffff; letter-spacing: .12em; }
+  .ticket .bar { fill: var(--dim); opacity: .8; }
+
+  .horizon { position: absolute; left: 72px; right: 72px; top: 768px; border-top: 1px solid var(--line); }
+  .stage-label { position: absolute; top: 786px; font-family: var(--font-mono); font-size: 15px; font-weight: 500; color: var(--dim); }
+  .stage-label.left { left: 72px; }
+  .stage-label.right { right: 72px; }
+
+  .footer { position: absolute; left: 72px; right: 72px; bottom: 43px; display: flex; justify-content: space-between; align-items: center; }
+  .footer p { font-size: 29px; font-weight: 500; }
+  .footer .signature { display: flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 16px; color: var(--violet-2); }
+  .signature img { width: 25px; height: auto; }
+</style></head>
+<body><main class="card">
+  <header class="masthead"><span class="edition">ACCESS REOPENS</span><span class="address">memoh.ai</span></header>
+
+  <p class="lead">Doors open again today</p>
+  <h1 class="count">Now boarding the waitlist.</h1>
+
+  <svg class="ticket" viewBox="0 0 1120 320" role="img" aria-label="A boarding-pass style access ticket: passenger waitlist members, gate app.memoh.net, boarding today, seats limited">
+    <path class="paper-main" d="M24 8 H800 V288 H24 Q8 288 8 272 V24 Q8 8 24 8 Z"/>
+    <path class="stub" d="M800 8 H1096 Q1112 8 1112 24 V272 Q1112 288 1096 288 H800 Z"/>
+    <circle class="notch" cx="800" cy="8" r="14"/>
+    <circle class="notch" cx="800" cy="288" r="14"/>
+    <path class="notch-rim" d="M786 8 A 14 14 0 0 0 814 8"/>
+    <path class="notch-rim" d="M786 288 A 14 14 0 0 1 814 288"/>
+    <line class="perf" x1="800" y1="34" x2="800" y2="262"/>
+
+    <rect x="44" y="42" width="11" height="11" fill="var(--violet)"/>
+    <text class="brandline" x="70" y="53">MEMOH ACCESS PASS</text>
+    <g class="bar">
+      <rect x="600" y="34" width="4" height="34"/><rect x="610" y="34" width="2" height="34"/><rect x="618" y="34" width="6" height="34"/><rect x="630" y="34" width="2" height="34"/><rect x="638" y="34" width="3" height="34"/><rect x="648" y="34" width="7" height="34"/><rect x="660" y="34" width="2" height="34"/><rect x="668" y="34" width="4" height="34"/><rect x="678" y="34" width="2" height="34"/><rect x="686" y="34" width="6" height="34"/><rect x="698" y="34" width="3" height="34"/><rect x="706" y="34" width="2" height="34"/><rect x="714" y="34" width="5" height="34"/><rect x="726" y="34" width="2" height="34"/><rect x="734" y="34" width="4" height="34"/><rect x="744" y="34" width="2" height="34"/><rect x="752" y="34" width="6" height="34"/>
+    </g>
+
+    <text class="lbl" x="44" y="118">PASSENGER</text>
+    <text class="val" x="44" y="158">Waitlist members</text>
+
+    <text class="lbl" x="44" y="222">GATE</text>
+    <text class="val-mono" x="44" y="254">memoh.ai</text>
+    <text class="lbl" x="360" y="222">BOARDING</text>
+    <text class="val-mono" x="360" y="254" style="fill:var(--paper)">2026.09.27</text>
+    <text class="lbl" x="640" y="222">SEATS</text>
+    <text class="val" x="640" y="256" style="font-size:27px">Limited</text>
+
+    <image href="../assets/logo-solid.png" x="871" y="73" width="170" height="150"/>
+  </svg>
+
+  <div class="horizon" aria-hidden="true"></div>
+  <span class="stage-label left">FIRST COME, FIRST SERVED</span>
+  <span class="stage-label right">LIMITED SEATS</span>
+
+  <footer class="footer"><p>See you inside.</p><span class="signature"><img src="../assets/logo.png" alt="">Memoh</span></footer>
+</main></body></html>

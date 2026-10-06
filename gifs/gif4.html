@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Memoh: same agent, every channel</title><link rel="stylesheet" href="gif.css">
+<style>
+  * { letter-spacing: 0; }
+  .copy { position: absolute; left: 56px; top: 155px; width: 395px; }
+  .copy h1 { font-size: 51px; line-height: 1.08; font-weight: 700; }
+  .copy h1 span { color: var(--violet); }
+  .copy p { margin-top: 27px; font-size: 21px; line-height: 1.55; color: var(--dim); }
+  .copy p + p { margin-top: 15px; }
+  .uptime { position: absolute; left: 56px; bottom: 61px; display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 500; }
+  .dot { width: 7px; height: 7px; background: var(--live); border-radius: 50%; display: inline-block; flex: none; }
+  .machine { position: absolute; left: 496px; top: 123px; width: 648px; height: 279px; border: 1px solid #d8d3e8; border-radius: 8px; background: white; box-shadow: 0 8px 24px #30205c08; }
+  .machine-head { height: 45px; padding: 0 19px; display: flex; align-items: center; gap: 9px; border-bottom: 1px solid var(--line); font-size: 14px; color: var(--dim); }
+  .machine-head .online { margin-left: auto; color: var(--live); display: flex; align-items: center; gap: 7px; }
+  .icon { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+  .agent { margin: 17px 20px 14px; display: flex; align-items: center; gap: 12px; }
+  .avatar { width: 43px; height: 43px; padding: 6px; background: #f1ebff; border-radius: 8px; }
+  .avatar img { width: 31px; height: 31px; object-fit: contain; }
+  .agent h2 { font-size: 19px; line-height: 1.3; }
+  .agent small { font-size: 12px; color: var(--dim); }
+  .agent-state { margin-left: auto; font-size: 12px; color: var(--violet); font-family: var(--font-mono); }
+  .resources { display: grid; grid-template-columns: 1fr 1fr 1.27fr; padding: 0 20px; gap: 15px; }
+  .resource { border-top: 2px solid #bda6ef; padding-top: 10px; }
+  .resource strong { display: flex; align-items: center; gap: 7px; font-size: 14px; font-weight: 600; }
+  .resource strong .icon { width: 16px; height: 16px; color: var(--violet); }
+  .resource p { margin-top: 7px; font-size: 12px; color: var(--dim); white-space: nowrap; }
+  .schedule { position: absolute; left: 0; right: 0; bottom: 0; height: 48px; border-top: 1px solid var(--line); display: flex; align-items: center; padding: 0 20px; gap: 9px; font-size: 13px; background: #faf9fd; border-radius: 0 0 8px 8px; }
+  .schedule .icon { color: var(--violet); width: 17px; height: 17px; }
+  .schedule b { font-weight: 500; }
+  .job-status { margin-left: auto; color: var(--live); font-size: 12px; min-width: 132px; text-align: right; }
+  .job-track { width: 68px; height: 3px; background: #e7e2f1; overflow: hidden; }
+  .job-track i { height: 100%; display: block; background: var(--violet); }
+  .channels { position: absolute; left: 496px; top: 441px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 11px; width: 648px; }
+  .channel { height: 142px; position: relative; border-top: 2px solid #e4e2ef; padding: 12px 0 0; }
+  .channel::before { content: ''; position: absolute; top: -41px; left: 50%; height: 39px; border-left: 1px solid #ddd7eb; }
+  .channel.active { border-color: var(--violet); }
+  .channel.active::before { border-color: var(--violet); }
+  .channel-head { display: flex; align-items: center; gap: 7px; font-size: 14px; font-weight: 600; margin-bottom: 10px; }
+  .brand { width: 23px; height: 23px; display: block; flex: none; }
+  .channel .web { color: var(--violet); }
+  .request { font-size: 12px; line-height: 1.4; min-height: 35px; padding: 6px 7px; border-radius: 4px; background: #f2f0f6; }
+  .telegram .request { background: #e7f4fc; color: #226888; }
+  .wechat .request { background: #e4f8dd; color: #285329; }
+  .discord .request { background: none; border-left: 2px solid #5865f2; padding-left: 7px; border-radius: 0; }
+  .response { margin-top: 8px; font-size: 12px; line-height: 1.4; min-height: 34px; color: var(--dim); }
+  .response b { font-weight: 500; color: var(--violet); }
+  .packet { position: absolute; left: calc(50% - 4px); top: -39px; width: 8px; height: 8px; background: var(--violet); border-radius: 50%; opacity: 0; }
+  .continuity { position: absolute; left: 496px; top: 605px; color: var(--dim); font-size: 12px; display: flex; align-items: center; gap: 7px; }
+  .continuity b { font-weight: 500; color: var(--violet); }
+  .day-clock { position: absolute; left: 496px; top: 38px; width: 648px; }
+  .clock-row { display: flex; align-items: center; gap: 12px; height: 37px; }
+  .clock-row > .icon { color: var(--violet); width: 24px; height: 24px; }
+  .clock-time { font: 500 29px var(--font-mono); font-variant-numeric: tabular-nums; }
+  .day-phase { font-size: 14px; color: var(--dim); min-width: 175px; }
+  .clock-running { margin-left: auto; color: var(--live); font-size: 13px; display: flex; align-items: center; gap: 7px; }
+  .day-track { position: relative; margin-top: 9px; height: 4px; background: var(--line); }
+  .day-track i { display: block; height: 4px; background: var(--violet); }
+  .day-track b { position: absolute; top: -3px; width: 10px; height: 10px; border-radius: 50%; background: var(--violet); transform: translateX(-50%); }
+  .day-labels { display: flex; justify-content: space-between; margin-top: 6px; color: var(--dim); font: 10px var(--font-mono); }
+  .terminal { position: absolute; left: 20px; right: 20px; bottom: 61px; display: flex; align-items: center; gap: 8px; font: 12px var(--font-mono); white-space: nowrap; }
+  .terminal .prompt { color: var(--violet-2); }
+  .terminal .cursor { color: var(--live); }
+  .machine-head strong { color: var(--paper); font-weight: 600; }
+</style></head>
+<body><div class="stage">
+  <svg style="position:absolute;width:0;height:0" aria-hidden="true"><defs>
+    <!-- Lucide icons, ISC license. -->
+    <symbol id="folder" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></symbol>
+    <symbol id="tools" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6m6.5-14-5 16"/></symbol>
+    <symbol id="memory" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5M3 12a9 3 0 0 0 18 0"/></symbol>
+    <symbol id="clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6h4"/></symbol>
+    <symbol id="cloud" viewBox="0 0 24 24"><path d="M20 16.2A4.5 4.5 0 0 0 18 7.7h-1.3A7 7 0 1 0 4 16.25"/><path d="M8 16h8m-8 4h8"/></symbol>
+    <symbol id="globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a17 17 0 0 1 0 20 17 17 0 0 1 0-20"/></symbol>
+    <!-- Channel brand silhouettes; Telegram sourced from felinics/landing public/brands. -->
+    <symbol id="telegram" viewBox="0 0 24 24"><path fill="#26A5E4" d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></symbol>
+    <symbol id="discord" viewBox="0 0 24 24"><path fill="#5865F2" d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.445.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.042-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.099.246.197.373.291a.077.077 0 0 1-.006.128 12.299 12.299 0 0 1-1.873.892.076.076 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .03-.057c.5-5.177-.838-9.674-3.548-13.66a.061.061 0 0 0-.031-.03ZM8.02 15.33c-1.182 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.182 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.947 2.418-2.157 2.418z"/></symbol>
+    <symbol id="wechat" viewBox="0 0 24 24"><path fill="#07C160" d="M8.7 2C3.9 2 0 5.2 0 9.1c0 2.2 1.2 4.1 3.1 5.4l-.8 2.6 3-1.5c1.1.4 2.2.6 3.4.6h.5a6.5 6.5 0 0 1-.4-2.2c0-4 3.6-7.2 8.1-7.2h.2C15.9 4 12.6 2 8.7 2Z"/><path fill="#07C160" d="M24 14c0-3.4-3.2-6.1-7.1-6.1S9.8 10.6 9.8 14s3.2 6.1 7.1 6.1c1 0 2-.2 2.8-.5l2.5 1.3-.6-2.3C23.1 17.5 24 15.9 24 14Z"/><g fill="white"><circle cx="5.8" cy="7" r="1"/><circle cx="11.5" cy="7" r="1"/><circle cx="14.5" cy="12.5" r=".8"/><circle cx="19.4" cy="12.5" r=".8"/></g></symbol>
+  </defs></svg>
+  <div class="mark"><img src="../assets/logo.png" alt="Memoh logo"><span>Memoh</span></div>
+  <div class="copy"><h1>Agents that<br>never <span>sleep.</span></h1><p>Files, tools, and memory stay on the machine. Scheduled jobs keep running.</p><p>The same agent stays online across Telegram, Discord, WeChat, and the web.</p></div>
+  <div class="uptime"><span class="dot"></span>24/7 online. Same agent. Same memory.</div>
+  <div class="day-clock" aria-label="24-hour agent activity">
+    <div class="clock-row"><svg class="icon"><use href="#clock"/></svg><time class="clock-time" id="clockTime">06:00</time><span class="day-phase" id="dayPhase">Morning</span><span class="clock-running"><i class="dot" id="heartbeat"></i>Agent running 24/7</span></div>
+    <div class="day-track"><i id="dayProgress"></i><b id="dayMarker"></b></div>
+    <div class="day-labels"><span>06:00</span><span>12:00</span><span>18:00</span><span>00:00</span><span>06:00 +1 day</span></div>
+  </div>
+  <section class="machine" aria-label="Persistent Memoh Linux cloud computer">
+    <div class="machine-head"><svg class="icon"><use href="#cloud"/></svg>Memoh cloud computer <strong>/ Linux</strong><span class="online"><i class="dot"></i>Online</span></div>
+    <div class="agent"><div class="avatar"><img src="../assets/logo.png" alt=""></div><div><h2>Research agent</h2><small class="mono">agent-01 / persistent workspace</small></div><span class="agent-state" id="agentState">Always available</span></div>
+    <div class="resources">
+      <div class="resource"><strong><svg class="icon"><use href="#folder"/></svg>Files</strong><p>research / brief.md</p></div>
+      <div class="resource"><strong><svg class="icon"><use href="#tools"/></svg>Tools</strong><p>Browser + Python</p></div>
+      <div class="resource"><strong><svg class="icon"><use href="#memory"/></svg>Memory</strong><p>Topic: battery markets</p></div>
+    </div>
+    <div class="terminal"><span class="prompt">agent@linux:~$</span><span id="terminalLog">06:00 scheduler online</span><span class="cursor" id="terminalCursor">▌</span></div>
+    <div class="schedule"><svg class="icon"><use href="#clock"/></svg><b>Daily research digest</b><span class="mono">09:00</span><span class="job-status" id="jobStatus">Next run scheduled</span><span class="job-track"><i id="jobProgress"></i></span></div>
+  </section>
+  <div class="channels">
+    <div class="channel telegram"><i class="packet"></i><div class="channel-head"><svg class="brand"><use href="#telegram"/></svg>Telegram</div><div class="request">Research battery markets.</div><div class="response" data-reply="Topic saved. I'll keep it."></div></div>
+    <div class="channel discord"><i class="packet"></i><div class="channel-head"><svg class="brand"><use href="#discord"/></svg>Discord</div><div class="request">Continue the research.</div><div class="response" data-reply="Same topic. Picking up."></div></div>
+    <div class="channel wechat"><i class="packet"></i><div class="channel-head"><svg class="brand"><use href="#wechat"/></svg>WeChat</div><div class="request">Send today's digest.</div><div class="response" data-reply="Ready. From your files."></div></div>
+    <div class="channel"><i class="packet"></i><div class="channel-head"><svg class="brand icon web"><use href="#globe"/></svg>Web</div><div class="request">Open the saved brief.</div><div class="response" data-reply="brief.md, right here."></div></div>
+  </div>
+  <div class="continuity"><span class="dot"></span><b>agent-01</b><span>connected to all four channels</span></div>
+  <div class="site">memoh.ai</div>
+</div>
+<script>
+  const channels = [...document.querySelectorAll('.channel')];
+  const still = new URLSearchParams(location.search).has('still') || matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const states = ['Telegram connected', 'Discord connected', 'WeChat connected', 'Web connected'];
+  function render(time) {
+    const dayProgress = Math.max(0, Math.min(1, (time - 400) / 8400));
+    const minutes = 360 + Math.floor(dayProgress * 1440);
+    const hour = Math.floor(minutes / 60) % 24;
+    const clock = `${String(hour).padStart(2, '0')}:${String(minutes % 60).padStart(2, '0')}`;
+    const phase = minutes >= 1800 ? 'Next morning / Day 2' : hour < 6 ? 'Late night / Day 2' : hour < 12 ? 'Morning / Day 1' : hour < 18 ? 'Afternoon / Day 1' : 'Evening / Day 1';
+    document.getElementById('clockTime').textContent = clock;
+    document.getElementById('dayPhase').textContent = phase;
+    document.getElementById('dayProgress').style.width = `${dayProgress * 100}%`;
+    document.getElementById('dayMarker').style.left = `${dayProgress * 100}%`;
+    document.getElementById('heartbeat').style.opacity = .65 + .35 * Math.sin(time / 250) ** 2;
+    const logs = ['scheduler online', 'collecting market sources', 'digest saved to brief.md', 'syncing research files', 'indexing new sources', 'memory checkpoint saved', 'overnight monitor active', 'checking source updates', '24h uptime; scheduler active'];
+    document.getElementById('terminalLog').textContent = `${clock} ${logs[Math.min(8, Math.floor(dayProgress * 8))]}`;
+    document.getElementById('terminalCursor').style.opacity = Math.floor(time / 400) % 2 ? 0 : 1;
+    const final = time >= 8400;
+    channels.forEach((channel, i) => {
+      const elapsed = time - (400 + i * 1900);
+      const active = elapsed >= 0 && elapsed < 1900 && !final;
+      channel.classList.toggle('active', active || final);
+      const request = channel.querySelector('.request');
+      request.style.opacity = elapsed >= 0 ? 1 : .32;
+      const packet = channel.querySelector('.packet');
+      const progress = Math.max(0, Math.min(1, elapsed / 550));
+      packet.style.opacity = active && elapsed < 550 ? 1 : 0;
+      packet.style.transform = `translateY(${(1 - progress) * 30}px)`;
+      const reply = channel.querySelector('.response');
+      let text = reply.dataset.reply;
+      if (elapsed < 650) text = elapsed >= 0 ? 'Connecting to agent-01...' : '';
+      else if ((i === 0 || i === 3) && !final) text = text.slice(0, Math.max(0, Math.floor((elapsed - 650) / 23)));
+      reply.replaceChildren();
+      if (elapsed >= 650) {
+        const name = document.createElement('b');
+        name.textContent = 'agent-01: ';
+        reply.append(name);
+      }
+      reply.append(text);
+    });
+    document.getElementById('agentState').textContent = final ? 'Same memory retained' : time < 400 ? 'Always available' : states[Math.min(3, Math.floor((time - 400) / 1900))];
+    document.getElementById('jobStatus').textContent = minutes < 540 ? 'Next run scheduled' : minutes < 720 ? 'Running digest...' : minutes < 1440 ? 'Saved to brief.md' : 'Next run: 09:00';
+    document.getElementById('jobProgress').style.width = `${Math.max(0, Math.min(100, (minutes - 540) / 1.8))}%`;
+  }
+  render(still ? 9000 : 0);
+  if (!still) { const start = Date.now(); setInterval(() => render((Date.now() - start) % 10000), 50); }
+</script></body></html>

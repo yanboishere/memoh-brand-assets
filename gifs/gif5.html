@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Memoh Cloud from $5/mo</title><link rel="stylesheet" href="gif.css">
+<style>
+  .stage { letter-spacing: 0; }
+  .intro { position: absolute; left: 56px; top: 112px; font-size: 26px; color: var(--dim); }
+  .price { position: absolute; left: 48px; top: 187px; height: 248px; display: flex; align-items: baseline; gap: 12px; transform-origin: 220px 215px; z-index: 2; }
+  .amount { font-family: var(--font-display); font-size: 250px; font-weight: 700; line-height: 1; color: var(--violet); }
+  .period { font-size: 57px; font-weight: 500; color: var(--paper); }
+  .comparison { position: absolute; left: 56px; top: 458px; width: 620px; }
+  .comparison .qualifier { display: block; font-size: 23px; line-height: 28px; color: var(--dim); }
+  .comparison strong { display: block; font-size: 76px; line-height: 88px; font-weight: 700; color: var(--violet-2); white-space: nowrap; }
+  .comparison .context { display: block; font-size: 24px; line-height: 32px; color: var(--paper); }
+  .specs { position: absolute; top: 161px; left: 724px; right: 56px; border-left: 1px solid var(--line); padding-left: 32px; }
+  .spec { height: 103px; display: flex; align-items: center; gap: 23px; position: relative; border-bottom: 1px solid var(--line); }
+  .spec:last-child { border-bottom: 0; }
+  .icon { width: 58px; height: 58px; flex: 0 0 58px; position: relative; display: grid; place-items: center; color: var(--violet); }
+  .icon svg { width: 43px; height: 43px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; position: relative; z-index: 2; }
+  .value { font-size: 34px; line-height: 40px; font-weight: 700; }
+  .label { font-size: 19px; line-height: 26px; color: var(--dim); }
+  .pulse { position: absolute; inset: 2px; border: 2px solid var(--violet); border-radius: 7px; opacity: 0; }
+  .memory-fill { position: absolute; left: 11px; bottom: 23px; width: 36px; height: 14px; background: #ddd0fb; transform-origin: left; }
+  .io { position: absolute; left: 7px; top: 9px; height: 3px; width: 12px; background: var(--violet); opacity: 0; }
+  .bot-eyes { position: absolute; left: 21px; top: 28px; display: flex; gap: 9px; z-index: 3; }
+  .bot-eyes i { width: 4px; height: 4px; background: var(--live); border-radius: 50%; }
+  .stamp { position: absolute; font-size: 76px; font-weight: 700; line-height: 1; color: var(--violet); opacity: 0; pointer-events: none; }
+  .stamp.one { left: 461px; top: 213px; }
+  .stamp.two { left: 493px; top: 353px; }
+  .impact { position: absolute; left: 66px; top: 408px; width: 555px; height: 35px; opacity: 0; pointer-events: none; }
+  .impact i { display: block; position: absolute; height: 3px; background: var(--violet); border-radius: 2px; }
+  .impact i:nth-child(1) { width: 65px; left: 0; top: 15px; transform: rotate(-15deg); }
+  .impact i:nth-child(2) { width: 83px; left: 248px; top: 25px; }
+  .impact i:nth-child(3) { width: 58px; right: 0; top: 4px; transform: rotate(18deg); }
+  .footer { position: absolute; bottom: 40px; left: 56px; font-family: var(--font-mono); font-size: 16px; color: var(--dim); }
+</style></head>
+<body><main class="stage" aria-label="Memoh Cloud pricing">
+  <div class="mark"><img src="../assets/logo.png" alt="Memoh logo"><span>Memoh</span></div>
+  <div class="intro">Memoh Cloud starts at</div>
+  <div class="price"><span class="amount">$5</span><span class="period">/mo</span></div>
+  <div class="stamp one" aria-hidden="true">$5</div><div class="stamp two" aria-hidden="true">$5</div>
+  <div class="impact" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="comparison"><span class="qualifier">up to</span><strong>97.5% lower</strong><span class="context">than mainstream agent plans</span></div>
+  <div class="specs">
+    <!-- Lucide Cpu, MemoryStick, HardDrive and Bot icon paths (ISC license). -->
+    <div class="spec cpu"><div class="icon"><span class="pulse"></span><svg viewBox="0 0 24 24" aria-label="CPU" role="img"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M9 1v3M9 20v3M15 1v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg></div><div><div class="value">8-core</div><div class="label">CPU</div></div></div>
+    <div class="spec ram"><div class="icon"><span class="memory-fill"></span><svg viewBox="0 0 24 24" aria-label="MemoryStick" role="img"><path d="M6 19v-3M10 19v-3M14 19v-3M18 19v-3M8 11V9M16 11V9M12 11V9M2 15h20M2 7a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v1a2 2 0 0 0 0 4v5H2v-5a2 2 0 0 0 0-4Z"/></svg></div><div><div class="value">16 GB</div><div class="label">RAM</div></div></div>
+    <div class="spec storage"><div class="icon"><span class="io"></span><svg viewBox="0 0 24 24" aria-label="HardDrive" role="img"><line x1="22" x2="2" y1="12" y2="12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11Z"/><line x1="6" x2="6.01" y1="16" y2="16"/><line x1="10" x2="10.01" y1="16" y2="16"/></svg></div><div><div class="value">40 GB</div><div class="label">storage</div></div></div>
+    <div class="spec bot"><div class="icon"><span class="bot-eyes"><i></i><i></i></span><svg viewBox="0 0 24 24" aria-label="Bot" role="img"><path d="M12 8V4H8M2 14h2M20 14h2M9 13v2M15 13v2"/><rect width="16" height="12" x="4" y="8" rx="2"/></svg></div><div><div class="value">Unlimited</div><div class="label">bots</div></div></div>
+  </div>
+  <div class="footer">MEMOH CLOUD</div><div class="site">memoh.ai</div>
+</main>
+<script>
+  const $ = selector => document.querySelector(selector);
+  const clamp = value => Math.max(0, Math.min(1, value));
+  const ease = value => 1 - Math.pow(1 - clamp(value), 3);
+  const still = new URLSearchParams(location.search).has('still');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function render(time) {
+    const t = time % 10000;
+    const drop = ease(t / 650);
+    const hits = [650, 1650, 2650];
+    let kick = 0;
+    let shock = 0;
+    hits.forEach(hit => {
+      const age = t - hit;
+      if (age >= 0 && age < 600) {
+        kick += Math.sin(age / 600 * Math.PI * 2) * (1 - age / 600);
+        shock = Math.max(shock, Math.sin(age / 600 * Math.PI) * .55);
+      }
+    });
+    $('.price').style.transform = `translateY(${(1 - drop) * -45 + kick * -8}px) scale(${.82 + .18 * drop + kick * .04})`;
+    $('.price').style.opacity = .22 + .78 * drop;
+    $('.impact').style.opacity = shock;
+    $('.impact').style.transform = `scaleX(${1 + shock * .25})`;
+    ['.one', '.two'].forEach((selector, index) => {
+      const age = t - (1450 + index * 1000);
+      const p = clamp(age / 240);
+      const fade = clamp((age - 280) / 650);
+      $(selector).style.opacity = age < 0 ? 0 : .28 * p * (1 - fade);
+      $(selector).style.transform = `translateY(${(1 - p) * -55}px) rotate(${index ? 12 : -12}deg) scale(${1.4 - .4 * p})`;
+    });
+    $('.comparison').style.opacity = .35 + .65 * ease((t - 2900) / 700);
+    document.querySelectorAll('.spec').forEach((row, index) => {
+      const p = ease((t - 700 - index * 650) / 450);
+      row.style.opacity = .3 + .7 * p;
+      row.style.transform = `translateX(${(1 - p) * 15}px)`;
+    });
+    const cpu = clamp((t - 850) / 1900);
+    $('.pulse').style.opacity = cpu > 0 && cpu < 1 ? Math.sin(cpu * Math.PI * 2) ** 2 * .65 : 0;
+    $('.pulse').style.transform = `scale(${1 + cpu * .25})`;
+    $('.memory-fill').style.transform = `scaleX(${ease((t - 1500) / 1600)})`;
+    const io = clamp((t - 2150) / 1600);
+    $('.io').style.opacity = io > 0 && io < 1 ? Math.sin(io * Math.PI) : 0;
+    $('.io').style.transform = `translateX(${Math.sin(io * Math.PI * 2) * 17 + 17}px)`;
+    const bot = ease((t - 2800) / 1100);
+    $('.bot-eyes').style.opacity = bot;
+    $('.bot .icon').style.transform = `translateY(${-Math.sin(bot * Math.PI) * 7}px)`;
+    $('.bot .icon').style.color = bot === 1 ? 'var(--live)' : 'var(--violet)';
+  }
+  if (still || reduced) render(6000);
+  else {
+    const start = Date.now();
+    render(0);
+    setInterval(() => render(Date.now() - start), 50);
+  }
+</script></body></html>

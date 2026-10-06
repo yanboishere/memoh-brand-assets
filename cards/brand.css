@@ -1,0 +1,45 @@
+/* Memoh promo card system · v2
+   Hallmark-compliant: locked tokens, no fake chrome, no decorative gradients.
+   Fonts: Space Grotesk (display) + JetBrains Mono (data). */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root {
+  --bg: #ffffff;
+  --raise: #f4f3fa;
+  --line: #e4e2ef;
+  --violet: #7c3aed;
+  --violet-2: #6d28d9;
+  --paper: #17151f;
+  --dim: #6b6880;
+  --live: #059669;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 1600px; height: 900px; overflow: clip;
+  background: var(--bg);
+  color: var(--paper);
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+}
+
+.card { position: relative; width: 1600px; height: 900px; overflow: clip; }
+
+/* brand mark — position set per card */
+.mark { position: absolute; display: flex; align-items: center; gap: 14px; z-index: 5; }
+.mark img { width: 48px; height: auto; display: block; }
+.mark span { font-size: 28px; font-weight: 700; letter-spacing: -.01em; color: var(--paper); }
+
+.site {
+  position: absolute; z-index: 5;
+  font-family: var(--font-mono); font-size: 22px; font-weight: 500;
+  color: var(--violet-2);
+}
+
+h1 { font-weight: 700; letter-spacing: -.025em; line-height: 1.05; color: var(--paper); }
+.sub { color: var(--dim); line-height: 1.5; font-weight: 400; }
+.mono { font-family: var(--font-mono); }
+.rule { border: 0; border-top: 1px solid var(--line); }

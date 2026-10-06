@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="brand.css">
+<style>
+  /* Hallmark · pre-emit critique: P4 H4 E4 S5 R4 V5 */
+  /* First Premium subscribers · centered bulletin + flag planted on a hill, mascot alongside */
+  :root { --ground-shadow: #59436e; }
+
+  .masthead { position: absolute; top: 48px; left: 72px; right: 72px; display: flex; align-items: center; justify-content: space-between; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+  .edition, .address { font-family: var(--font-mono); font-size: 19px; font-weight: 500; }
+  .edition { display: flex; align-items: center; gap: 12px; }
+  .edition::before { content: ''; width: 10px; height: 10px; background: var(--violet); }
+  .address { color: var(--violet-2); }
+
+  .lead { position: absolute; top: 176px; left: 0; width: 100%; text-align: center; color: var(--violet-2); font-size: 46px; font-weight: 500; }
+  .count { position: absolute; top: 252px; left: 0; width: 100%; text-align: center; font-size: 100px; line-height: 1.06; font-weight: 700; letter-spacing: -.02em; color: var(--paper); }
+
+  .horizon { position: absolute; left: 72px; right: 72px; top: 780px; border-top: 1px solid var(--line); }
+  .stage-label { position: absolute; top: 798px; font-family: var(--font-mono); font-size: 15px; font-weight: 500; color: var(--dim); }
+  .stage-label.left { left: 72px; }
+  .stage-label.right { right: 72px; }
+
+  .scene { position: absolute; left: 0; top: 380px; width: 1600px; height: 401px; }
+  .scene .hill { fill: var(--raise); stroke: var(--line); stroke-width: 1.5; }
+  .scene .edge { fill: var(--bg); stroke: var(--dim); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+  .scene .detail { fill: none; stroke: var(--dim); stroke-width: 1.5; stroke-linecap: round; }
+  .scene .banner { fill: var(--violet); }
+  .scene .spark-v { fill: var(--violet); }
+  .scene .spark-g { fill: var(--live); }
+
+  .mascot { position: absolute; left: 670px; top: 581px; width: 150px; height: auto; z-index: 3; }
+  .mascot-shadow { position: absolute; left: 660px; top: 705px; width: 170px; height: 15px; border-radius: 50%; background: var(--ground-shadow); filter: blur(11px); opacity: .2; z-index: 2; }
+
+  .footer { position: absolute; left: 72px; right: 72px; bottom: 43px; display: flex; justify-content: space-between; align-items: center; }
+  .footer p { font-size: 29px; font-weight: 500; }
+  .footer .signature { display: flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 16px; color: var(--violet-2); }
+  .signature img { width: 25px; height: auto; }
+</style></head>
+<body><main class="card">
+  <header class="masthead"><span class="edition">GOOD NEWS</span><span class="address">memoh.ai</span></header>
+
+  <p class="lead">The best news of this Monday</p>
+  <h1 class="count">We have Premium subscribers.</h1>
+
+  <div class="horizon" aria-hidden="true"></div>
+  <span class="stage-label left">MON 09.21</span>
+  <span class="stage-label right">UPGRADE COMPLETE</span>
+
+  <svg class="scene" viewBox="0 0 1600 401" role="img" aria-label="A violet flag planted on a small hill, with the Memoh mascot standing beside it">
+    <path class="hill" d="M540 400 Q 800 260 1060 400 Z"/>
+    <line class="edge" x1="830" y1="74" x2="830" y2="336"/>
+    <path class="banner" d="M836 76 L1002 103 L836 132 Z"/>
+    <path class="detail" d="M812 330 l-14 7 M848 330 l14 7" opacity=".8"/>
+    <rect class="spark-v" x="1006" y="60" width="9" height="9" transform="rotate(18 1010 64)"/>
+    <rect class="spark-v" x="768" y="46" width="7" height="7" transform="rotate(-12 771 49)"/>
+    <rect class="spark-g" x="896" y="24" width="8" height="8" transform="rotate(30 900 28)"/>
+    <path class="detail" d="M1032 130 h14 M1039 123 v14" opacity=".8"/>
+  </svg>
+
+  <div class="mascot-shadow" aria-hidden="true"></div>
+  <img class="mascot" src="../assets/logo.png" alt="Memoh mascot celebrating beside the flag">
+
+  <footer class="footer"><p>To our first subscribers — thank you.</p><span class="signature"><img src="../assets/logo.png" alt="">Memoh</span></footer>
+</main></body></html>
