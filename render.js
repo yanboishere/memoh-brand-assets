@@ -20,7 +20,7 @@ const DARK_VARS = `:root {
     viewport: { width: 1600, height: 900 },
     deviceScaleFactor: 2,
   });
-  for (let i = 1; i <= 15; i++) {
+  for (let i = 1; i <= 16; i++) {
     if (process.env.THREAD && String(i) !== process.env.THREAD) continue;
     const file = 'file://' + path.resolve(__dirname, 'cards', `card${i}.html`);
     await page.goto(file, { waitUntil: 'networkidle' });

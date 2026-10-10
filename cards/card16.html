@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="brand.css">
+<style>
+  /* Hallmark · pre-emit critique: P5 H5 E4 S5 R5 V5 */
+  /* Q & A card · whiteboard on an easel (left, enlarged) + mascot in a mortarboard (right, 406px = 70% of v1) · question: "What is a Bot? / How many can I create?" (68px, each line nowrap; blank template = output/light/qa-blank-light.png) */
+
+  .layer { position: absolute; left: 0; top: 0; width: 1600px; height: 900px; }
+
+  /* whiteboard */
+  .scene .frame, .scene .tray, .scene .leg { fill: var(--dim); }
+  .scene .surface { fill: var(--bg); }
+  .scene .marker { fill: var(--violet); }
+  .scene .marker-cap { fill: var(--paper); }
+  .ground { position: absolute; left: 72px; right: 72px; top: 800px; border-top: 2px solid var(--line); }
+
+  /* marker text on the board */
+  .board-title { position: absolute; left: 164px; top: 156px; font-size: 136px; line-height: 1; color: var(--paper); white-space: nowrap; }
+  .board-title em { font-style: normal; color: var(--violet); }
+  .question { position: absolute; left: 164px; top: 340px; width: 840px; font-size: 68px; font-weight: 500; line-height: 1.22; color: var(--paper); }
+  .question span { white-space: nowrap; }
+  .question em { font-style: normal; color: var(--violet); }
+
+  /* mascot + cap (cap is drawn in logo-pixel units, mapped onto the mascot) */
+  .mascot { position: absolute; left: 1122px; top: 442px; width: 406px; height: auto; }
+  .cap .crown, .cap .top { fill: var(--paper); }
+  .cap .edge { fill: var(--violet-2); }
+  .cap .cord { fill: none; stroke: var(--violet); stroke-width: 16; stroke-linecap: round; stroke-linejoin: round; }
+  .cap .tuft { fill: var(--violet); }
+
+  .help { position: absolute; left: 72px; top: 824px; font-size: 28px; font-weight: 500; line-height: 1.2; color: var(--paper); white-space: nowrap; }
+  .help span { color: var(--violet-2); font-weight: 600; }
+</style></head>
+<body><main class="card">
+  <svg class="layer scene" viewBox="0 0 1600 900" aria-hidden="true">
+    <polygon class="leg" points="172,668 196,668 156,800 132,800"/>
+    <polygon class="leg" points="956,668 980,668 1020,800 996,800"/>
+    <rect class="frame" x="88" y="96" width="976" height="564" rx="16"/>
+    <rect class="surface" x="100" y="108" width="952" height="540" rx="6"/>
+    <rect class="tray" x="76" y="654" width="1000" height="16" rx="6"/>
+    <rect class="marker" x="906" y="640" width="76" height="14" rx="7"/>
+    <rect class="marker-cap" x="976" y="640" width="28" height="14" rx="5"/>
+  </svg>
+  <div class="ground" aria-hidden="true"></div>
+
+  <h1 class="board-title">Q <em>&amp;</em> A</h1>
+  <p class="question"><span>What is a <em>Bot</em>?</span><br><span>How many can I create?</span></p>
+
+  <img class="mascot" src="../assets/logo-solid.png" alt="Memoh mascot wearing a graduation cap">
+
+  <svg class="layer cap" viewBox="0 0 1600 900" aria-hidden="true">
+    <g transform="translate(1122 442) scale(0.223445)">
+      <g transform="rotate(-9 820 330)">
+        <path class="crown" d="M575 205 L1065 205 L1052 318 Q820 352 588 318 Z"/>
+        <polygon class="edge" points="420,184 820,89 1220,184 820,279"/>
+        <polygon class="top" points="420,160 820,65 1220,160 820,255"/>
+        <path class="cord" d="M820 160 L480 160"/>
+      </g>
+      <path class="cord" d="M457.6 215.3 L457.6 362"/>
+      <polygon class="tuft" points="439,356 476,356 487,440 428,440"/>
+    </g>
+  </svg>
+
+  <p class="help">For more info, visit <span>memoh.ai/help</span></p>
+</main></body></html>
